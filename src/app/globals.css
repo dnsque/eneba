@@ -1,0 +1,27 @@
+@import "tailwindcss";
+@import '@typehaus/metropolis';
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+}
+
+:root {
+      --background: #4618ac;
+      --foreground: #FFFFFF;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  display: none;            
+}
+
+input[type="search"]::-moz-search-clear-button {
+  display: none;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}

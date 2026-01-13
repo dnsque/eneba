@@ -1,8 +1,5 @@
 import LithuanianFlag from "@/shared/ui/icons/lithuania.svg?react";
 
-export interface SettingsProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
-
 export const Settings = () => {
   return (
     <div className="flex w-full gap-2">

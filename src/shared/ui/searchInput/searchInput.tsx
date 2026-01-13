@@ -1,12 +1,8 @@
 import { forwardRef, useState } from "react";
 import SearchIcon from "@/shared/ui/icons/search.svg?react";
 
-
-export interface SearchInputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {}
-
-export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
-  ({ className = "", ...props }, ref) => {
+export const SearchInput = forwardRef<HTMLInputElement>(
+  ({ ...props }, ref) => {
     const [value, setValue] = useState("");
     const [focused, setFocused] = useState(false);
 
@@ -39,7 +35,6 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
         pr-12
         pl-14
         focus:bg-black/20
-        ${className}
       `}
             {...props}
           />

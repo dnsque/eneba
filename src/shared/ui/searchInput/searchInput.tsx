@@ -1,10 +1,12 @@
 import { forwardRef, useState } from "react";
+import SearchIcon from "@/shared/ui/icons/search.svg?react";
 
-export interface InputProps
+
+export interface SearchInputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {}
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
-  ({ className = "", type = "search", ...props }, ref) => {
+export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(
+  ({ className = "", ...props }, ref) => {
     const [value, setValue] = useState("");
     const [focused, setFocused] = useState(false);
 
@@ -16,32 +18,37 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             onClick={() => setFocused(false)}
           />
         )}
-        <div className="relative z-20 w-full max-w-md ">
+
+        <div className="relative z-20 w-full">
+          <SearchIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-7 h-7 pointer-events-none" />
+
           <input
             ref={ref}
-            type={type}
             value={value}
             onChange={(e) => setValue(e.target.value)}
             onFocus={() => setFocused(true)}
+            type="search"
             placeholder="Search for games, top-ups and more"
             className={`
-            p-3
-            border
-          focus:bg-black/20
-            focus: w-full
-            outline-none
-            font-bold
-            text-xl
-            pr-10
-            ${className}
-          `}
+        w-[550px]
+        p-4
+        border
+        outline-none
+        font-semibold
+        text-[19px]
+        pr-12
+        pl-14
+        focus:bg-black/20
+        ${className}
+      `}
             {...props}
           />
+
           {value && (
             <button
               type="button"
               onClick={() => setValue("")}
-              className="absolute right-3 top-1/2 transform -translate-y-1/2 duration-200 text-gray-400 hover:text-white text-xl"
+              className="absolute right-4 top-1/2 -translate-y-1/2 duration-200 text-gray-400 hover:text-white text-xl"
             >
               ✕
             </button>
@@ -52,4 +59,4 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
   }
 );
 
-Input.displayName = "Input";
+SearchInput.displayName = "SearchInput";

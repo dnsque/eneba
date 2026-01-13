@@ -1,14 +1,16 @@
 import './globals.css'
 import { HomePage } from '@/pages/home'
 import { Header } from '@/widgets/header'
+import { Container } from '@/shared/ui'
 
 function App() {
 
   return (
-  <>
-  <Header/>
-  <HomePage/>
-  </>
+  <Container>
+    <Header/>
+    <HomePage/>
+  </Container>
+
   )
 }
 
